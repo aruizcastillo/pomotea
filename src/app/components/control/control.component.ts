@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LucideAngularModule, PauseIcon, Play, Square } from 'lucide-angular';
+import { LucideAngularModule, PauseIcon, Play, Square, TimerReset } from 'lucide-angular';
 import { TimerService } from '../../services/timer.service';
 
 @Component({
@@ -12,6 +12,8 @@ export class ControlComponent {
   readonly PlayIcon = Play;
   readonly PauseIcon = PauseIcon;
   readonly StopIcon = Square;
+  readonly ResetIcon = TimerReset;
+
 
   constructor(public timer: TimerService) {}
 

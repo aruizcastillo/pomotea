@@ -7,8 +7,11 @@
 .clock {
     font-size: 2rem;
     font-weight: 700;
+	font-family: var(--font-family-mono);
     color: var(--text-color);
     user-select: none;
+    width: 100%;
+    text-align: center;
 }
 
 .time-input{
@@ -64,10 +67,6 @@
 
 .step-btn:active{
 	transform: translateY(1px);
-}
-
-.step-btn:focus{
-	outline: none;
 }
 
 /* Slight spacing tweaks so input and buttons sit nicely */

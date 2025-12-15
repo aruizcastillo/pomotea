@@ -1,5 +1,6 @@
 :root, [data-theme="tea"] {
     --font-family: 'Quicksand', sans-serif;
+    --font-family-mono: 'Cutive Mono', monospace;
     --primary-color: #6491309f;
     --secondary-color: #6491303c;
     --background-color: #F3EDE4;
@@ -9,6 +10,7 @@
     --text-color-alt: #5a5a5a;
     --cup-color: hsl(31, 38%, 70%);
     --liquid-color: #8bc34a81;
+    --danger-color: #db7f74;
 }
 
 [data-theme="coffee"] {
@@ -21,6 +23,7 @@
     --text-color-alt: #d4cfc6;
     --cup-color: #dbcabd;
     --liquid-color: #6F4E37;
+    --danger-color: #db7f74;
 }
 
 * {
@@ -44,9 +47,10 @@ body {
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100dvh;
     justify-content: center;
     padding-inline: 20px;
+    margin-inline: 20px;
 }
 
 .main-container {
@@ -88,7 +92,7 @@ footer {
 }
 
 .primary-btn:hover {
-    opacity: 0.8;
+    opacity: 0.9;
     transition: opacity 0.3s ease;
 }
 
@@ -109,7 +113,28 @@ footer {
 }
 
 .secondary-btn:hover {
-    opacity: 0.8;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.danger-btn {
+    background-color: var(--danger-color);
+    font-family: var(--font-family);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    gap: 0.5rem;
+}
+
+.danger-btn:hover {
+    opacity: 0.9;
     transition: opacity 0.3s ease;
 }
 
@@ -129,8 +154,8 @@ footer {
 }
 
 .github-star:hover {
-    opacity: 0.8;
-    transform: translateY(-1px);
+    opacity: 0.9;
+    transform: scale(1.1);
     transition: all 0.15s ease;
 }
 
@@ -142,4 +167,11 @@ footer {
         padding-bottom: 1.5rem;
     }
 
+}
+
+.separator {
+    width: 80%;
+    margin: -10px 0px;
+    height: 2px;
+    background-color: var(--border-color);
 }

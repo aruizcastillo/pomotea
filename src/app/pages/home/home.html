@@ -5,8 +5,9 @@
             <app-cup [fillPercent]="timer.state === 'idle' ? 100 : ((timerPercent$ | async) ?? 0)" />
         </div>
         <app-timer />
-    <app-theme-selector />
-    <app-control />
+        <app-theme-selector />
+        <div class="separator"></div>
+        <app-control />
     </main>
     <app-footer />
 </div>

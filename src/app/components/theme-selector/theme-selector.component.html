@@ -1,11 +1,9 @@
 <div class="theme-group" role="radiogroup" aria-label="Seleccionar tema">
-  <label class="secondary-btn theme-option">
-    <input type="radio" name="theme" value="tea" (change)="setTheme('tea')" [checked]="selectedTheme === 'tea'" />
+  <button class="secondary-btn theme-option" [class.selected]="selectedTheme === 'tea'" (click)="setTheme('tea')">
     <span class="btn-content">🍵 <span class="label-text">Tea</span></span>
-  </label>
+  </button>
 
-  <label class="secondary-btn theme-option">
-    <input type="radio" name="theme" value="coffee" (change)="setTheme('coffee')" [checked]="selectedTheme === 'coffee'" />
+  <button class="secondary-btn theme-option" [class.selected]="selectedTheme === 'coffee'" (click)="setTheme('coffee')">
     <span class="btn-content">☕ <span class="label-text">Coffee</span></span>
-  </label>
+  </button>
 </div>

@@ -8,6 +8,7 @@
 .cup-container {
     width: clamp(240px, 100vw, 500px);
     margin: 0 auto;
+    margin-bottom: -10px;
 }
 
 .cup-outline {
