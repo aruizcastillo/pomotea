@@ -1,0 +1,36 @@
+:root, [data-theme='tea'] {
+  --background: #f7f6f0;
+  --foreground: #30372d;
+  --muted-foreground: #666d60;
+  --primary: #455e39;
+  --primary-foreground: #ffffff;
+  --secondary: #e8ebdf;
+  --border: #dce0d3;
+  --input: #919b86;
+  --destructive: #a13f36;
+  --cup-glaze: #faf8f0;
+  --cup-outline: #b4a58a;
+  --cup-shadow: #d9d4c6;
+  --cup-highlight: #f6f8e9;
+  --liquid: #b3c68c;
+  --liquid-surface: #c7d6a6;
+  --stage: #edf0e4;
+}
+[data-theme='coffee'] {
+  --background: #26231f;
+  --foreground: #f0e9de;
+  --muted-foreground: #b6afa3;
+  --primary: #d4bc95;
+  --primary-foreground: #28231d;
+  --secondary: #3b3630;
+  --border: #474137;
+  --input: #8c8070;
+  --destructive: #edab9d;
+  --cup-glaze: #e4d9c7;
+  --cup-outline: #bdab90;
+  --cup-shadow: #aa967c;
+  --cup-highlight: #cfb898;
+  --liquid: #806044;
+  --liquid-surface: #a07c56;
+  --stage: #302c25;
+}
