@@ -1,6 +1,6 @@
 {
   "meta": { "description": "A little time, well spent. A calm Pomodoro timer with a cup of tea or coffee. Focus, pause, and make room for a break." },
-  "app": { "tagline": "A little time, well spent.", "skip": "Skip to timer", "settings": "Settings", "language": "Switch to Spanish", "theme": "Your cup", "credit": "A mindful little project by", "about": "The Pomodoro ritual", "close": "Close", "source": "Source code" },
+  "app": { "tagline": "A little time, well spent.", "skip": "Skip to timer", "settings": "Settings", "language": "Language", "theme": "Your cup", "credit": "A mindful little project by", "about": "The Pomodoro ritual", "close": "Close", "source": "Source code" },
   "timer": {
     "focus": "Focus", "break": "Take a break", "heading": "One thing at a time.", "breakHeading": "Make room for a pause.", "description": "Settle in. Pick one thing. Let the rest wait.", "breakDescription": "Stretch a little. Look away. Refill your cup.",
     "idle": "Ready when you are", "running": "A little space to focus", "paused": "Take your time. It's paused.", "finished": "A little time, well spent.", "breakRunning": "Nothing to do. Just breathe.",

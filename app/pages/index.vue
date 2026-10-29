@@ -2,7 +2,8 @@
 import { ArrowRight, ArrowUpRight, Coffee, Leaf, Pause, Play, RotateCcw } from '@lucide/vue'
 import type { TimerMode } from '~/lib/timer'
 
-const { t, locale, setLocale } = useI18n()
+const { t } = useI18n()
+const localePath = useLocalePath()
 const { preferences, setPreference, available } = usePreferences()
 const alerts = useSessionAlerts()
 const lateCompletion = ref(false)
@@ -13,7 +14,7 @@ const timer = usePomodoro((state, late) => {
   if (preferences.value.sound && !late) alerts.chime()
   if (preferences.value.notifications && !late) {
     const isBreak = state.mode === 'break'
-    void alerts.notify(t(isBreak ? 'timer.breakCompleteTitle' : 'timer.completeTitle'), t(isBreak ? 'timer.breakCompleteBody' : 'timer.completeBody'), state.id, locale.value === 'es' ? '/es' : '/')
+    void alerts.notify(t(isBreak ? 'timer.breakCompleteTitle' : 'timer.completeTitle'), t(isBreak ? 'timer.breakCompleteBody' : 'timer.completeBody'), state.id, localePath('/'))
   }
 })
 const { state, ready, formatted, progress, storageAvailable } = timer
@@ -40,7 +41,7 @@ watch(() => [preferences.value.focusMinutes, preferences.value.breakMinutes, rea
 
 function toggle() {
   if (!ready.value) return
-  if (preferences.value.sound) alerts.unlockSound()
+  if (preferences.value.sound) void alerts.unlockSound()
   void timer.toggle()
 }
 
@@ -82,10 +83,15 @@ function savePreferences(values: { focusMinutes: number, breakMinutes: number, s
   savedMessage.value = t('settings.saved')
 }
 
+async function previewSound() {
+  await alerts.unlockSound()
+  alerts.chime()
+}
+
 function keyboard(event: KeyboardEvent) {
   if (event.code !== 'Space' || event.repeat || event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) return
   const target = event.target as HTMLElement
-  if (target.closest('button, a, input, select, textarea, [contenteditable], [role="dialog"]') || document.querySelector('[role="dialog"]') || isFinished.value) return
+  if (target.closest('button, a, input, select, textarea, [contenteditable], [role="dialog"], [role="menu"]') || document.querySelector('[role="dialog"], [role="menu"]') || isFinished.value) return
   event.preventDefault()
   toggle()
 }
@@ -105,7 +111,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', keyboard))
     <header class="app-header">
       <a
         class="wordmark"
-        :href="locale === 'es' ? '/es' : '/'"
+        :href="localePath('/')"
         aria-label="Pomotea"
       >pomotea<span class="wordmark-dot">.</span></a>
       <p class="header-note">
@@ -115,21 +121,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', keyboard))
         class="header-controls"
         :aria-label="t('app.settings')"
       >
-        <UiButton
-          variant="ghost"
-          size="lg"
-          :aria-label="t('app.language')"
-          @click="setLocale(locale === 'en' ? 'es' : 'en')"
-        >
-          {{ locale === 'en' ? 'ES' : 'EN' }}
-        </UiButton>
+        <LanguageMenu />
         <PreferencesDialog
           :preferences="preferences"
           :permission="alerts.permission.value"
           :notification-failed="alerts.failed.value"
           @save="savePreferences"
           @notifications="notifications"
-          @preview="alerts.unlockSound(); alerts.chime()"
+          @preview="previewSound"
         />
       </nav>
     </header>
@@ -155,6 +154,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', keyboard))
           />
           <UiToggleGroup
             type="single"
+            :spacing="2"
             :model-value="preferences.theme"
             :aria-label="t('app.theme')"
             class="theme-picker"
@@ -175,6 +175,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', keyboard))
         >
           <UiToggleGroup
             type="single"
+            :spacing="1"
             :model-value="state.mode"
             :disabled="isActive"
             class="mode-picker"
@@ -212,6 +213,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', keyboard))
           >
             <UiToggleGroup
               type="single"
+              :spacing="2"
               :model-value="String(state.durationMs / 60_000)"
               :aria-label="t('timer.duration')"
               @update:model-value="setDuration"

@@ -39,10 +39,10 @@ export function useSessionAlerts() {
     }
   }
 
-  function unlockSound() {
+  async function unlockSound() {
     try {
       audio ??= new AudioContext()
-      void audio.resume().catch(() => {})
+      await audio.resume()
     }
     catch { /* Sound is optional; the visual completion always remains. */ }
   }

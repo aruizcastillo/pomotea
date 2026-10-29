@@ -1,6 +1,6 @@
 {
   "meta": { "description": "Un ratito bien aprovechado. Un temporizador Pomodoro tranquilo, con una taza de té o café. Concéntrate, pausa y tómate un respiro." },
-  "app": { "tagline": "Un ratito bien aprovechado.", "skip": "Ir al temporizador", "settings": "Ajustes", "language": "Cambiar a inglés", "theme": "Tu taza", "credit": "Un pequeño proyecto de", "about": "El ritual Pomodoro", "close": "Cerrar", "source": "Código fuente" },
+  "app": { "tagline": "Un ratito bien aprovechado.", "skip": "Ir al temporizador", "settings": "Ajustes", "language": "Idioma", "theme": "Tu taza", "credit": "Un pequeño proyecto de", "about": "El ritual Pomodoro", "close": "Cerrar", "source": "Código fuente" },
   "timer": {
     "focus": "Concentración", "break": "Descanso", "heading": "Una cosa cada vez.", "breakHeading": "Haz espacio para una pausa.", "description": "Ponte a gusto. Elige una cosa. Lo demás puede esperar.", "breakDescription": "Estírate. Aparta la mirada. Rellena tu taza.",
     "idle": "Cuando tú quieras", "running": "Un ratito para concentrarte", "paused": "Sin prisa. Está en pausa.", "finished": "Un ratito bien aprovechado.", "breakRunning": "Nada que hacer. Solo respira.",

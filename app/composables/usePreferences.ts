@@ -12,11 +12,10 @@ const KEY = 'pomotea.preferences.v1'
 const defaults: Preferences = { theme: 'tea', focusMinutes: 25, breakMinutes: 5, sound: true, notifications: false }
 
 export function usePreferences() {
-  const preferences = useState<Preferences>('preferences', () => ({ ...defaults }))
   const available = ref(true)
-  // A cookie lets SSR render the chosen palette without a flash on reload.
+  // Seed SSR from the cookie; preserve the payload during static-page hydration.
   const themeCookie = useCookie<'tea' | 'coffee'>('pomotea-theme', { default: () => 'tea', maxAge: 31_536_000, sameSite: 'lax' })
-  preferences.value.theme = themeCookie.value === 'coffee' ? 'coffee' : 'tea'
+  const preferences = useState<Preferences>('preferences', () => ({ ...defaults, theme: themeCookie.value === 'coffee' ? 'coffee' : 'tea' }))
 
   function read() {
     try {

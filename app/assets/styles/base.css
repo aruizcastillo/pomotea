@@ -1,0 +1,16 @@
+@layer base {
+  * { @apply border-border; }
+  html { @apply scheme-light; }
+  html[data-theme='coffee'] { @apply scheme-dark; }
+  body { @apply m-0 bg-background text-foreground antialiased transition-[background-color,color] duration-350 ease-[ease]; }
+  button, a, input, summary { @apply touch-manipulation; -webkit-tap-highlight-color: transparent; }
+  button:not(:disabled), summary { @apply cursor-pointer; }
+  button:disabled { @apply cursor-not-allowed; }
+  :focus-visible { @apply outline-2 outline-solid outline-ring outline-offset-[5px]; }
+  ::selection { @apply bg-primary text-primary-foreground; }
+  svg { @apply shrink-0; }
+  a { @apply underline-offset-4; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+}

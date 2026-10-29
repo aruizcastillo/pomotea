@@ -1,0 +1,12 @@
+:root {
+  --font-base: 'Geist Variable';
+  --font-title: 'Fraunces Variable';
+  --font-size-base: 1rem;
+  --font-weight-title: 400;
+  --tracking-title: -0.045em;
+}
+
+@layer base {
+  body { @apply font-sans text-[length:var(--font-size-base)]; }
+  h1, h2, h3 { @apply font-heading font-[number:var(--font-weight-title)] tracking-(--tracking-title); }
+}
